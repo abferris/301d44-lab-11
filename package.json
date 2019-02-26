@@ -1,0 +1,26 @@
+{
+  "name": "301d44-lab-11",
+  "version": "1.0.0",
+  "description": "BookApp",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abferris/301d44-lab-11.git"
+  },
+  "author": "Aaron Ferris & Andrew Roska",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abferris/301d44-lab-11/issues"
+  },
+  "homepage": "https://github.com/abferris/301d44-lab-11#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "superagent": "^4.1.0"
+  }
+}
