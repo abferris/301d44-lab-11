@@ -4,6 +4,12 @@ h4 {
 }
 div{
   width: 90%;
-  margin: .625rem auto;
-  border: 
+  margin: 1.8rem auto;
+  border: outset white .25rem;
+}
+div img{
+  width: 60%;
+  box-shadow: whitesmoke .125rem;
+  margin: .6rem 20%;
+
 }

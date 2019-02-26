@@ -9,14 +9,18 @@
   <body>
     <main>
       <h4>Search Results</h4>
-      <div class='result'>
-        <img src= 'https://i.imgur.com/J5LVHEL.jpg'>
-        <h5> Book Title</h5>
-        <p class='author' >Author Name</p>
-        <p>Book Description Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita illum voluptates odit quasi sapiente quod dolorum illo quaerat est debitis itaque laboriosam voluptatibus, doloribus mollitia nam ipsum! Reiciendis, laborum quos. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo temporibus, enim omnis numquam ullam ea vel reprehenderit! Rem totam ducimus est a rerum culpa in quod libero ab, sint autem.
-        </p>
-
-      </div>
+      <ul>
+        <% searchesResults.forEach(book => { %>
+        <li> 
+          <div class='result'>
+            <img src= <%= book.image %>>
+              <h5><%= book.title %></h5>
+              <p class='author' ><%= book.author %></p>
+              <p><%= book.description %></p>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
     </main>
   </body>
 </html>
