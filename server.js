@@ -54,12 +54,18 @@ function createSearch(request, response) {
 
   if (request.body.search[1] === 'title') { url += `+intitle:"${request.body.search[0]}"`; }
   if (request.body.search[1] === 'author') { url += `+inauthor:"${request.body.search[0]}"`; }
-
   console.log(url);
 
   superagent.get(url)
     .then(apiResponse => apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo)))
-    .then(results => response.render('pages/searches/show', { searchesResults: results }));
+    .then(results => {
+      if (results.length === 0){
+        response.render('pages/error')
+      } else{
+        response.render('pages/searches/show', { searchesResults: results})
+      }
+    });
 
   // how will we handle errors?
+
 }
