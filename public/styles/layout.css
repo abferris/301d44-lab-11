@@ -1,5 +1,15 @@
 h4 {
   background-color: black;
   color: white;
-  
+}
+div{
+  width: 90%;
+  margin: 1.8rem auto;
+  border: outset white .25rem;
+}
+div img{
+  width: 60%;
+  box-shadow: whitesmoke .125rem;
+  margin: .6rem 20%;
+
 }

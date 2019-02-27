@@ -1,30 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Book Collection</title>
+    <title>Book Collection: Home</title>
     <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
     <link rel="stylesheet" type="text/css" href="/styles/base.css" />
     <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
   </head>
   <body>
     <main>
-      <h4>Search by Title or Author</h4>
-      <form action="/searches" method="post">
-        <input type="text" name="search" placeholder="Enter a title or author" required>
-        <fieldset>
-          <label for="title">
-            <span>Title</span>
-            <input type="radio" name="search" value="title" required>
-          </label>
-        </fieldset>
-        <fieldset>
-          <label for="author">
-            <span>Author</span>
-            <input type="radio" name="search" value="author" required>
-          </label>
-        </fieldset>
-        <button type="submit">Search the Google Books API</button>
-      </form>
+      <h4>My Books</h4>
+      <a href = "/search"> New Search</a>
+      <ul>
+        <% results.forEach(book => { %>
+          <li> 
+            <div class='result'>
+              <img src= <%= book.image %>>
+                <h5><%= book.title %></h5>
+                <p class='author' ><%= book.author %></p>
+                <p><%= book.description %></p>
+            </div>
+          </li>
+          <% }) %> 
+      </ul>
     </main>
   </body>
 </html>
