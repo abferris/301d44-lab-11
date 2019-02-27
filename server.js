@@ -56,7 +56,7 @@ function showBooks(request, response) {
   let SQL = 'SELECT * FROM books;';
 
   return client.query(SQL)
-    .then(results => response.render('index', {results: resluts.rows}))
+    .then(results => response.render('pages/index', {results: results.rows}))
     .catch(err => handleError(err, response));
 }
 
