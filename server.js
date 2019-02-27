@@ -32,10 +32,10 @@ app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 // HELPER FUNCTIONS
 // Only show part of this to get students started
 function Book(info) {
-  this.title = info.title || 'No Title Avaialble';
-  this.author = info.authors || 'No Author Available';
-  this.description = info.description || 'No Description Available';
-  this.image = info.imageLinks.thumbnail || info.imageLinks.smallThumbnail || 'https://i.imgur.com/J5LVHEL.jpg';
+  this.title = info.title;
+  this.author = info.authors;
+  this.description = info.description ;
+  this.image = info.imageLinks ? info.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
 }
 
 // Note that .ejs file extension is not required
@@ -52,14 +52,17 @@ function createSearch(request, response) {
   console.log(request.body)
   console.log(request.body.search)
 
-  if (request.body.search[1] === 'title') { url += `+intitle:"${request.body.search[0]}"`; }
-  if (request.body.search[1] === 'author') { url += `+inauthor:"${request.body.search[0]}"`; }
-
+  if (request.body.search[1] === 'title') { url += `+intitle:${request.body.search[0]}`; }
+  if (request.body.search[1] === 'author') { url += `+inauthor:${request.body.search[0]}`; }
   console.log(url);
 
   superagent.get(url)
     .then(apiResponse => apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo)))
-    .then(results => response.render('pages/searches/show', { searchesResults: results }));
+    .then(results => response.render('pages/searches/show', { searchesResults: results}))
+    .catch(err => handleError(err, response));
 
-  // how will we handle errors?
+}
+
+function handleError(error,response) {
+response.render('pages/error', {error: error});
 }

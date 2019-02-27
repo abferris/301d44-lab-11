@@ -116,3 +116,9 @@ Start time: _____
 Finish time: _____
 
 Actual time needed to complete: _____
+
+Used rescources:
+
+Fail Snail:
+From Flikr user Todd Barnard 
+link https://c2.staticflickr.com/4/3062/2634356788_8583bf48c4_z.jpg?zz=1
