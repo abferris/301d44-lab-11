@@ -60,17 +60,17 @@ Actual time needed to complete: .5 hours
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Driver: Andrew Navigator
+Driver: Andrew Navigator Aaron Driver 
 
 ###Feature 3: Browse results
 
 Estimate of time needed to complete: 1 hour
 
-Start time: _____
+Start time: 11:30 AM
 
-Finish time: _____
+Finish time: 12:00 PM
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1.25 hours
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
@@ -81,11 +81,15 @@ Actual time needed to complete: _____
 
 Estimate of time needed to complete: .5 hour
 
-Start time: _____
+Start time: 12:45 PM
 
-Finish time: _____
+BREAK 1:30 PM
 
-Actual time needed to complete: _____
+START AGAIN AT 9:30 AM
+
+Finish time: 9:45 AM
+
+Actual time needed to complete: 1 Hour
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
@@ -94,31 +98,107 @@ Actual time needed to complete: _____
 
 ###Feature 5: Basic CSS
 
-Estimate of time needed to complete: 1 hour
+Estimate of time needed to complete: 1 Hour
 
-Start time: _____
+Start time: 12:00
 
-Finish time: _____
+Finish time: 12:30
 
-Actual time needed to complete: _____
+Actual time needed to complete: .5 Hour
+
+(minimal done. Will continue at later time)
+
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-###Feature 5: Complex CSS
 
-Estimate of time needed to complete:  Variable
+##Lab 12
 
-Start time: _____
 
-Finish time: _____
 
-Actual time needed to complete: _____
+###Feature 0: SQL Data Setup
 
-Used rescources:
+Estimate of time needed to complete: 30 min
 
-Fail Snail:
-From Flikr user Todd Barnard 
-link https://c2.staticflickr.com/4/3062/2634356788_8583bf48c4_z.jpg?zz=1
+Start time: 9:45
+
+Finish time: 10:30
+
+Actual time needed to complete: .75 min
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+###Feature 2: Saved Books
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 12:00
+
+Finish time: 12:30
+
+Actual time needed to complete: .5 min
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+###Feature 3: Individual Book Information
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 12:00
+
+Finish time: 12:30
+
+Actual time needed to complete: .5 min
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+###Feature 4: Add new Books 
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 12:00
+
+Finish time: 12:30
+
+Actual time needed to complete: .5 min
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+###Feature 5: Use SQL data for load times
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 12:00
+
+Finish time: 12:30
+
+Actual time needed to complete: .5 min
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+###Feature 6: Good UI
+
+Estimate of time needed to complete: 1 Hour
+
+Start time: 12:00
+
+Finish time: 12:30
+
+Actual time needed to complete: .5 min
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

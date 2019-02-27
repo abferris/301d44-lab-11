@@ -3,7 +3,7 @@
 // Dependencies
 const express = require('express');
 const superagent = require('superagent');
-
+const pg = require('pg');
 require('dotenv').config();
 
 // Setup
@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3000;
 
 //  Middleware
 app.use(express.urlencoded({ extended: true }));
+const client = new pg.Client(process.env.DATABASE_URL);
+client.connect();
+client.on('err', err => console.error(err));
 
 // file locations for ejs templates and static files
 app.set('view engine', 'ejs');
@@ -19,10 +22,13 @@ app.use(express.static('./public'));
 
 // API Routes
 //search form
-app.get('/', newSearch);
+app.get('/', showBooks);
+
+app.get('/searches', newSearch)
+
 
 // Creates a new search to the Google Books API
-app.post('/searches', createSearch);
+app.post('/results', createSearch);
 
 // Catch-all
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
@@ -40,13 +46,25 @@ function Book(info) {
 
 // Note that .ejs file extension is not required
 function newSearch(request, response) {
-  response.render('pages/index'); //location for ejs files
+  response.render('pages/searches/new'); //location for ejs files
   app.use(express.static('./public'));//location for other files like css
 }
+
+//HELPER FUNCTION
+
+function showBooks(request, response) {
+  let SQL = 'SELECT * FROM books;';
+
+  return client.query(SQL)
+    .then(results => response.render('pages/index', {results: results.rows}))
+    .catch(err => handleError(err, response));
+}
+
 
 // No API key required
 // Console.log request.body and request.body.search
 function createSearch(request, response) {
+  // const SQL= `SELECT * FROM books WHERE id=$1;`;
   let url = 'https://www.googleapis.com/books/v1/volumes?q=';
 
   console.log(request.body)
@@ -59,10 +77,9 @@ function createSearch(request, response) {
   superagent.get(url)
     .then(apiResponse => apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo)))
     .then(results => response.render('pages/searches/show', { searchesResults: results}))
-    .catch(err => handleError(err, response));
-
+    .catch(err => handleError(err, response))
 }
 
 function handleError(error,response) {
 response.render('pages/error', {error: error});
-}
+} 
