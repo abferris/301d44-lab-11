@@ -24,7 +24,7 @@ app.use(express.static('./public'));
 //search form
 app.get('/', showBooks);
 
-app.get('/searches', newSearch)
+app.get('/search', newSearch)
 
 
 // Creates a new search to the Google Books API
