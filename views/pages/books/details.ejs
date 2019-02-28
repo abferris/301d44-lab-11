@@ -10,21 +10,18 @@
   </head>
   <body>
     <main>
-      <h4>My Books</h4>
-      <a href = "/search"> New Search</a>
-      <h5>Total Number of Books: <%= results.length %></h5>
+      <a href = "/search"> New Search</a> <a href ="/">My Bookshelf</a>
       <ul>
-        <% results.forEach(book => { %>
           <li> 
             <div class='result' data-id="<%= book.id%>">
               <img src= "<%= book.image %>>"
                 <h5><%= book.title %></h5>
                 <p class='author' >Written By: <%= book.author %></p>
+                <p class='isbn'>ISBN: <%=book.isbn%></p>
                 <p class='description'><%= book.description %></p>
-                <a href="/details/<%=book.id%>"> View Details </a>
+                <p class='shelf'><%= book.bookshelf%></p>
               </div>
           </li>
-          <% }) %> 
       </ul>
     </main>
   </body>

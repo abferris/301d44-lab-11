@@ -25,6 +25,7 @@ app.use(express.static('./public'));
 app.get('/', showBooks);
 
 app.get('/search', newSearch)
+app.get('/details/:books_id', showDetails)
 
 
 // Creates a new search to the Google Books API
@@ -42,6 +43,7 @@ function Book(info) {
   this.author = info.authors;
   this.description = info.description ;
   this.image = info.imageLinks ? info.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
+  this.isbn = info.industryIdentifiers[0].type.includes('ISBN') ? info.industryIdentifiers[0].identifier : 'No ISBN Available'
 }
 
 // Note that .ejs file extension is not required
@@ -60,6 +62,15 @@ function showBooks(request, response) {
     .catch(err => handleError(err, response));
 }
 
+function showDetails(request, response) {
+  let SQL = 'SELECT * FROM books WHERE id=$1'
+  let values = [request.params.books_id]
+  return client.query(SQL, values)
+    .then (result => {
+      return response.render('/pages/searches/details', {book: result.rows[0]})
+      .catch(err => handleError(err, response));
+    })
+}
 
 // No API key required
 // Console.log request.body and request.body.search
@@ -81,5 +92,5 @@ function createSearch(request, response) {
 }
 
 function handleError(error,response) {
-response.render('pages/error', {error: error});
+  response.render('pages/error', {error: error});
 } 
