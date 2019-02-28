@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
     <link rel="stylesheet" type="text/css" href="/styles/base.css" />
     <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
   </head>
   <body>
     <main>
@@ -15,8 +16,8 @@
           <div class='result'>
             <img src= <%= book.image %>>
               <h5><%= book.title %></h5>
-              <p class='author' ><%= book.author %></p>
-              <p><%= book.description %></p>
+              <p class='author' >Written By: <%= book.author %></p>
+              <p class='description'><%= book.description %></p>
           </div>
         </li>
         <% }) %>

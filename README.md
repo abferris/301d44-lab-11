@@ -133,7 +133,7 @@ Actual time needed to complete: .75 min
 --------------------------------------------------------------------------
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-###Feature 2: Saved Books
+###Feature 1: Saved Books
 
 Estimate of time needed to complete: 1 Hour
 
