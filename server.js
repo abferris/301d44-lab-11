@@ -67,9 +67,10 @@ function showDetails(request, response) {
   let values = [request.params.books_id]
   return client.query(SQL, values)
     .then (result => {
-      return response.render('/pages/searches/details', {book: result.rows[0]})
-      .catch(err => handleError(err, response));
+      console.log(values,'values');
+      return response.render('pages/books/details', {book: result.rows[0]})
     })
+    .catch(err => handleError(err, response));
 }
 
 // No API key required

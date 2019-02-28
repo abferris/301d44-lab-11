@@ -17,10 +17,9 @@
         <% results.forEach(book => { %>
           <li> 
             <div class='result' data-id="<%= book.id%>">
-              <img src= "<%= book.image %>>"
+              <a href="/details/<%=book.id%>"><img src= <%= book.image %>></a>
                 <h5><%= book.title %></h5>
                 <p class='author' >Written By: <%= book.author %></p>
-                <p class='description'><%= book.description %></p>
                 <a href="/details/<%=book.id%>"> View Details </a>
               </div>
           </li>
