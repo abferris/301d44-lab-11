@@ -49,7 +49,7 @@ function Book(info) {
 
 // Display the search page
 function renderSearch(request, response) {
-  response.render('pages/searches/new'); //location for ejs files
+  response.render('pages/searches/new-search'); //location for ejs files
   app.use(express.static('./public'));//location for other files like css
 }
 
@@ -85,7 +85,7 @@ function newSearch(request, response) {
 
   superagent.get(url)
     .then(apiResponse => apiResponse.body.items.map(bookResult => new Book(bookResult.volumeInfo)))
-    .then(results => response.render('pages/searches/show', { searchesResults: results}))
+    .then(results => response.render('pages/searches/search-results', { searchesResults: results}))
     .catch(err => handleError(err, response))
 }
 
@@ -93,11 +93,16 @@ function newSearch(request, response) {
 function addBook(request, response) {
   console.log('sql request', request.body);
   let {title, author, image_url, description, isbn, bookshelf} = request.body;
-  let SQL = `INSERT INTO books(title, author, image_url, description, isbn, bookshelf) VALUES ($1, $2, $3, $4, $5, $6);`;
+  let SQL = `INSERT INTO books(title, author, image_url, description, isbn, bookshelf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;`;
   let values = [title, author, image_url, description, isbn, bookshelf];
+  let id;
 
   return client.query(SQL, values)
-    .then(response.redirect('/'))
+    .then(result => {
+      id = result.rows[0].id;
+      console.log('id', id);
+      response.redirect(`/details/${id}`);
+    })
     .catch(err => handleError(err, response))
 }
 
