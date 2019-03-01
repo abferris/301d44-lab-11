@@ -11,6 +11,7 @@
   <body>
     <main>
       <h4>My Books</h4>
+      <a href ="/">Home</a>
       <a href = "/search"> New Search</a>
       <h5>Total Number of Books: <%= results.length %></h5>
       <ul>
@@ -21,7 +22,7 @@
                 <h5><%= book.title %></h5>
                 <p class='author' >Written By: <%= book.author %></p>
                 <p class='description'><%= book.description %></p>
-                <a href="/details/<%=book.id%>"> View Details </a>
+                <a href="/details/<%= book.id%>"> View Details </a>
               </div>
           </li>
           <% }) %> 

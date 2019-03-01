@@ -2,23 +2,31 @@
 <html>
   <head>
     <title>Book Collection: Searches</title>
-    <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/base.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
+    <%- include('../components/head') %>
   </head>
   <body>
     <main>
       <h4>Search Results</h4>
+      <%- include('../components/nav') %>
       <ul>
         <% searchesResults.forEach(book => { %>
         <li> 
           <div class='result'>
             <img src= <%= book.image %>>
               <h5><%= book.title %></h5>
-              <p class='author' >Written By: <%= book.author %></p>
+              <p class='author'>Written By: <%= book.author %></p>
               <p class='description'><%= book.description %></p>
           </div>
+          <form action="/add" method="post">
+            <fieldset>
+              <!-- <legend>Add this Book?</legend> -->
+              <input type="text" name="title" placeholder="<%= book.title %>" >
+              <input type="text" name="author" placeholder="<%= book.author %>" >
+              <textarea name="description" placeholder="<%= book.description %>" cols="30" rows="20" ></textarea>
+              <input type="text" name="ISBN" placeholder="<%= book.isbn %>" >
+              <button type="submit">Add Book</button>
+            </fieldset>
+          </form>
         </li>
         <% }) %>
       </ul>

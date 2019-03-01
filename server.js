@@ -1,5 +1,6 @@
 'use strict';
 
+
 // Dependencies
 const express = require('express');
 const superagent = require('superagent');
@@ -21,23 +22,23 @@ app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
 // API Routes
-//search form
+// Show saved library
 app.get('/', showBooks);
+app.get('/details/:book_id', showDetails);
 
-app.get('/search', newSearch)
-app.get('/details/:books_id', showDetails)
-
-
-// Creates a new search to the Google Books API
-app.post('/results', createSearch);
+//Search for books
+app.get('/search', renderSearch);
+app.post('/results', newSearch);
+app.post('/add', addBook);
 
 // Catch-all
 app.get('*', (request, response) => response.status(404).send('This route does not exist'));
 
+// Turn on server
 app.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
 
 // HELPER FUNCTIONS
-// Only show part of this to get students started
+// Constructor for info retrieved from API
 function Book(info) {
   this.title = info.title;
   this.author = info.authors;
@@ -46,14 +47,13 @@ function Book(info) {
   this.isbn = info.industryIdentifiers[0].type.includes('ISBN') ? info.industryIdentifiers[0].identifier : 'No ISBN Available'
 }
 
-// Note that .ejs file extension is not required
-function newSearch(request, response) {
+// Display the search page
+function renderSearch(request, response) {
   response.render('pages/searches/new'); //location for ejs files
   app.use(express.static('./public'));//location for other files like css
 }
 
-//HELPER FUNCTION
-
+// Display all saved books
 function showBooks(request, response) {
   let SQL = 'SELECT * FROM books;';
 
@@ -62,20 +62,18 @@ function showBooks(request, response) {
     .catch(err => handleError(err, response));
 }
 
+// Display details for selected saved book
 function showDetails(request, response) {
-  let SQL = 'SELECT * FROM books WHERE id=$1'
-  let values = [request.params.books_id]
+  let SQL = 'SELECT * FROM books WHERE id=$1;';
+  let values = [request.params.books_id];
   return client.query(SQL, values)
-    .then (result => {
-      return response.render('/pages/searches/details', {book: result.rows[0]})
-      .catch(err => handleError(err, response));
-    })
+    .then (result => response.render('pages/books/details', {book: result.rows[0]}))
+    .catch(err => handleError(err, response));
 }
 
+// Search Google Books API
 // No API key required
-// Console.log request.body and request.body.search
-function createSearch(request, response) {
-  // const SQL= `SELECT * FROM books WHERE id=$1;`;
+function newSearch(request, response) {
   let url = 'https://www.googleapis.com/books/v1/volumes?q=';
 
   console.log(request.body)
@@ -91,6 +89,18 @@ function createSearch(request, response) {
     .catch(err => handleError(err, response))
 }
 
+// Save the selected book to db
+function addBook(request, response) {
+  let {title, author, description, isbn} = request.body;
+  let SQL = `INSERT INTO books(title, author, description, isbn) VALUES ($1, $2, $3, $4);`;
+  let values = [title, author, description, isbn];
+
+  return client.query(SQL, values)
+    .then(response.redirect('/results'))
+    .catch(err => handleError(err, response))
+}
+
+// Handle Errors
 function handleError(error,response) {
   response.render('pages/error', {error: error});
-} 
+}
