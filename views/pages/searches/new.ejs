@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Book Collection</title>
-    <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/base.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
+    <title>Book Collection: Search</title>
+    <%- include('../components/head') %>
 
   </head>
   <body>
     <main>
       <h4>Search by Title or Author</h4>
+      <%- include('../components/nav') %>
       <form action="/results" method="post">
         <input type="text" name="search" placeholder="Enter a title or author" required>
         <fieldset>

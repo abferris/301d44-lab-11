@@ -65,7 +65,7 @@ function showBooks(request, response) {
 // Display details for selected saved book
 function showDetails(request, response) {
   let SQL = 'SELECT * FROM books WHERE id=$1;';
-  let values = [request.params.books_id];
+  let values = [request.params.book_id];
   return client.query(SQL, values)
     .then (result => response.render('pages/books/details', {book: result.rows[0]}))
     .catch(err => handleError(err, response));
@@ -91,12 +91,13 @@ function newSearch(request, response) {
 
 // Save the selected book to db
 function addBook(request, response) {
-  let {title, author, description, isbn} = request.body;
-  let SQL = `INSERT INTO books(title, author, description, isbn) VALUES ($1, $2, $3, $4);`;
-  let values = [title, author, description, isbn];
+  console.log('sql request', request.body);
+  let {title, author, image_url, description, isbn, bookshelf} = request.body;
+  let SQL = `INSERT INTO books(title, author, image_url, description, isbn, bookshelf) VALUES ($1, $2, $3, $4, $5, $6);`;
+  let values = [title, author, image_url, description, isbn, bookshelf];
 
   return client.query(SQL, values)
-    .then(response.redirect('/results'))
+    .then(response.redirect('/'))
     .catch(err => handleError(err, response))
 }
 

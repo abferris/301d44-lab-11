@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Book Collection: Home</title>
-    <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/base.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
+    <title>Book Collection: Details</title>
+    <%- include('../components/head') %>
 
   </head>
   <body>
     <main>
-      <a href = "/search"> New Search</a> <a href ="/">Home</a>
+      <h4>Book Details</h4>
+      <%- include('../components/nav') %>
       <ul>
           <li> 
             <div class='result' data-id="<%= book.id%>">
-              <img src= "<%= book.image %>>"
-                <h5><%= book.title %></h5>
-                <p class='author' >Written By: <%= book.author %></p>
-                <p class='isbn'>ISBN: <%=book.isbn%></p>
-                <p class='description'><%= book.description %></p>
-                <p class='shelf'><%= book.bookshelf%></p>
+              <%- include('../components/basic', {book: book});%>
+              <p class='description'><%= book.description %></p>
+              <p class='isbn'>ISBN: <%=book.isbn%></p>
+              <p class='shelf'><%= book.bookshelf%></p>
               </div>
           </li>
       </ul>

@@ -2,27 +2,20 @@
 <html lang="en">
   <head>
     <title>Book Collection: Home</title>
-    <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/base.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/layout.css" />
-    <link rel="stylesheet" type="text/css" href="/styles/modules.css" />
+    <%- include('components/head') %>
 
   </head>
   <body>
     <main>
       <h4>My Books</h4>
-      <a href ="/">Home</a>
-      <a href = "/search"> New Search</a>
+      <%- include('components/nav') %>
       <h5>Total Number of Books: <%= results.length %></h5>
       <ul>
         <% results.forEach(book => { %>
           <li> 
             <div class='result' data-id="<%= book.id%>">
-              <img src= "<%= book.image %>>"
-                <h5><%= book.title %></h5>
-                <p class='author' >Written By: <%= book.author %></p>
-                <p class='description'><%= book.description %></p>
-                <a href="/details/<%= book.id%>"> View Details </a>
+              <%- include('components/basic', {book: book}); %>
+              <a href="/details/<%= book.id%>"> View Details </a>
               </div>
           </li>
           <% }) %> 

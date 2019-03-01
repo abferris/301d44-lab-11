@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Book Collection: Searches</title>
+    <title>Book Collection: Results</title>
     <%- include('../components/head') %>
   </head>
   <body>
@@ -16,17 +16,24 @@
               <h5><%= book.title %></h5>
               <p class='author'>Written By: <%= book.author %></p>
               <p class='description'><%= book.description %></p>
+              <form action="/add" method="post">
+                <fieldset>
+                  <!-- <legend>Add this Book?</legend> -->
+                  <label>Title:</label>
+                  <input type="text" name="title" value="<%= book.title %>"</br>
+                  <label>Author:</label>
+                  <input type="text" name="author" value="<%= book.author %>"></br>
+                  <input type="hidden" name="image_url" value="<%= book.image %>">
+                  <label>Description:</label>
+                  <textarea name="description" cols="30" rows="10"><%= book.description %></textarea></br>
+                  <label>ISBN #:</label>
+                  <input type="text" name="isbn" value="<%= book.isbn %>"></br>
+                  <label>Custom Bookshelf Name:</label>
+                  <input type="text" name="bookshelf" value="Default" ></br>
+                  <button type="submit">Add Book</button>
+                </fieldset>
+              </form>
           </div>
-          <form action="/add" method="post">
-            <fieldset>
-              <!-- <legend>Add this Book?</legend> -->
-              <input type="text" name="title" placeholder="<%= book.title %>" >
-              <input type="text" name="author" placeholder="<%= book.author %>" >
-              <textarea name="description" placeholder="<%= book.description %>" cols="30" rows="20" ></textarea>
-              <input type="text" name="ISBN" placeholder="<%= book.isbn %>" >
-              <button type="submit">Add Book</button>
-            </fieldset>
-          </form>
         </li>
         <% }) %>
       </ul>

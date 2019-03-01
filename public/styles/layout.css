@@ -1,7 +1,7 @@
 div{
   max-width: 600px;
   width: 40rem;
-  height: 55rem;
+  height: auto;
   margin: 1.8rem auto;
   border: outset white .25rem;
 }
