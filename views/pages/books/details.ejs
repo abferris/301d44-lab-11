@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Book Collection: Details</title>
+    <%- include('../components/head') %>
+
+  </head>
+  <body>
+    <main>
+      <h4>Book Details</h4>
+      <%- include('../components/nav') %>
+      <ul>
+          <li> 
+            <div class='result' data-id="<%= book.id%>">
+              <%- include('../components/basic', {book: book});%>
+              <p class='description'><%= book.description %></p>
+              <p class='isbn'>ISBN: <%=book.isbn%></p>
+              <p class='shelf'><%= book.bookshelf%></p>
+              </div>
+          </li>
+      </ul>
+    </main>
+  </body>
+</html>
