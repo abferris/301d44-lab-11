@@ -17,7 +17,7 @@
               <p class='author'>Written By: <%= book.author %></p>
               <p class='description'><%= book.description %></p>
               <button class= 'hide'>Toggle View</button>
-              <form action="/add" method="post">
+              <form action="/add" method="post" class="hidden">
                 <fieldset>
                   <!-- <legend>Add this Book?</legend> -->
                   <label>Title:</label>
@@ -39,6 +39,7 @@
         <% }) %>
       </ul>
     </main>
-    <script ype="text/javascript" src='/views/pages/components/hide.js'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src='/js/hide.js'></script>
   </body>
 </html>
