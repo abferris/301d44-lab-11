@@ -16,7 +16,8 @@
               <h5><%= book.title %></h5>
               <p class='author'>Written By: <%= book.author %></p>
               <p class='description'><%= book.description %></p>
-              <form action="/add" method="post">
+              <button class= 'hide'>Toggle View</button>
+              <form action="/add" method="post" class="hidden">
                 <fieldset>
                   <%- include ('../components/form', {book: book})%>
                   <button type="submit">Add Book</button>
@@ -27,5 +28,7 @@
         <% }) %>
       </ul>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src='/js/hide.js'></script>
   </body>
 </html>

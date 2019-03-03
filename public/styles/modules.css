@@ -1,4 +1,7 @@
 
+.hidden {
+  display: hidden;
+}
 div img{
   display:block;
   object-fit: contain;
