@@ -202,3 +202,9 @@ Actual time needed to complete: .5 min
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+##Image Credits:
+Home icon: https://pixabay.com/vectors/home-icon-svg-vector-button-2741413/ from user mmi9 labeled for nocommercial reuse
+
+Magnifying glass icon https://commons.wikimedia.org/wiki/File:BSicon_fexKBHF3.svg from wikimedia labeled for noncommercial reuse
+

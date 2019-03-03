@@ -7,8 +7,7 @@
   </head>
   <body>
     <main>
-      <h4>Book Details</h4>
-      <%- include('../components/nav') %>
+      <h4>Book Details <%- include('../components/nav') %></h4>     
       <!-- <div class='result' data-id="<%= book.id%>">
         <%- include('../components/basic', {book: book});%>
         <p class='description'><%= book.description %></p>
@@ -16,7 +15,7 @@
         <p class='shelf'><%= book.bookshelf%></p>
       </div> -->
       <button class="hide">Select Book</button>
-      <div class="toggle">
+      <div class="toggle single">
         <%- include('../components/basic', {book: book});%>
         <p class='description'><%= book.description %></p>
         <p class='isbn'>ISBN: <%=book.isbn%></p>
