@@ -5,13 +5,24 @@
 const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
+const methodOverride = require('method-override');
 require('dotenv').config();
 
 // Setup
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//  Middleware
+// Middleware
+app.use(methodOverride((request, response) => {
+  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+    // look in urlencoded POST bodies and delete it
+    let method = request.body._method;
+    delete request.body._method;
+    return method;
+  }
+}))
+
+// DB Setup
 app.use(express.urlencoded({ extended: true }));
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
