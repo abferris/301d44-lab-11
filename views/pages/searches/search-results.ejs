@@ -12,7 +12,7 @@
         <% searchesResults.forEach(book => { %>
         <li> 
           <div class="result">
-            <img src= <%= book.image %> />
+            <img src= <%= book.image_url %> />
             <button class="hide">Select Book</button>
             <div class="toggle">
               <h5><%= book.title %></h5>
@@ -22,6 +22,7 @@
             <form action="/add" method="post" class="toggle hidden">
               <fieldset>
                 <%- include('../components/form', {book: book});%>
+                <input type="text" name="bookshelf" required ></br>
                 <button type="submit">Add Book</button>
               </fieldset>
             </form>

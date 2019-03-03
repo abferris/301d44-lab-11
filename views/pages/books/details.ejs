@@ -9,29 +9,31 @@
     <main>
       <h4>Book Details</h4>
       <%- include('../components/nav') %>
-      <!-- <div class='result' data-id="<%= book.id%>">
-        <%- include('../components/basic', {book: book});%>
-        <p class='description'><%= book.description %></p>
-        <p class='isbn'>ISBN: <%=book.isbn%></p>
-        <p class='shelf'><%= book.bookshelf%></p>
-      </div> -->
-      <button class="hide">Select Book</button>
-      <div class="toggle">
-        <%- include('../components/basic', {book: book});%>
-        <p class='description'><%= book.description %></p>
-        <p class='isbn'>ISBN: <%=book.isbn%></p>
-        <p class='shelf'><%= book.bookshelf%></p>
-      </div>
-      <form action="/edit" method="put" class="toggle hidden">
-        <img src= <%= book.image %> />
-        <fieldset>
+      <div>
+        <button class="hide">Edit Details</button>
+        <form action="<%= `/delete/${book.id}` %>" method="POST">
+          <input type="hidden" name="_method" value="DELETE"></input>
+          <button>Delete Book from Library</button>
+        </form>
+        <img src= <%= book.image_url %> />
+        <div class="toggle">
+          <%- include('../components/basic', {book: book});%>
+          <p class='description'><%= book.description %></p>
+          <p class='isbn'>ISBN: <%=book.isbn%></p>
+          <p class='shelf'><%= book.bookshelf%></p>
+        </div>
+        <form action="<%= `/edit/${book.id}` %>" method="POST" class="toggle hidden">
+          <input type="hidden" name="_method" value="PUT"></input>
           <%- include('../components/form', {book: book});%>
+          <select name="bookshelf">
+            <% bookshelves.forEach(shelf => {%>
+            <option value="<%= shelf.bookshelf %>" <%= (shelf.bookshelf === book.bookshelf) ? 'selected="selected"' : '' %>><%= shelf.bookshelf %></option>
+            <% }) %>
+          </select>
           <button type="submit">Edit Book</button>
-        </fieldset>
-      </form>
-    </div>
-  </main>
-    
+        </form>
+      </div>
+    </main>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src='/js/app.js'></script>
