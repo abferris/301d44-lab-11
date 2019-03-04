@@ -1,10 +1,36 @@
-div{
-  max-width: 600px;
-  width: 40rem;
-  height: auto;
-  margin: 1.8rem auto;
-  border: outset white .25rem;
+
+ul{
+  width: 100vw;
+
 }
+ li{
+   margin:auto;
+ }
+div{
+  width: 80vw;
+  height: 110vw;
+  margin: 1.8rem;
+  border: outset white .25rem;
+  margin:auto 10vw 3vw;
+  padding: 5px
+}
+ul{ 
+  width: 80vw;
+}
+@media screen and (min-width: 430px) {
+  ul{
+    width: 100vw;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  li div{
+    width: 350px;
+    height: 500px;
+    margin: 10px 0;
+  }
+}
+<<<<<<< HEAD
 
 input:invalid {
   border: 2px solid red;
@@ -13,3 +39,5 @@ input:invalid {
 input:valid {
   border: 2px solid black;
 }
+=======
+>>>>>>> 612522acb10145cc8fb92efca26936eeaf2642fe
