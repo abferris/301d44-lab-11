@@ -5,13 +5,14 @@
 const express = require('express');
 const superagent = require('superagent');
 const pg = require('pg');
+const methodOverride = require('method-override');
 require('dotenv').config();
 
 // Setup
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-//  Middleware
+// DB Setup
 app.use(express.urlencoded({ extended: true }));
 const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
@@ -21,10 +22,26 @@ client.on('err', err => console.error(err));
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 
+// Middleware to handle PUT and DELETE
+app.use(methodOverride((request, response) => {
+  if (request.body && typeof request.body === 'object' && '_method' in request.body) {
+    // look in urlencoded POST bodies and delete it
+    let method = request.body._method;
+    delete request.body._method;
+    return method;
+  }
+}))
+
 // API Routes
 // Show saved library
 app.get('/', showBooks);
 app.get('/details/:book_id', showDetails);
+
+// Edit details of saved book
+app.put('/edit/:book_id', editDetails);
+
+// Delete book from library
+app.delete('/delete/:book_id', deleteBook);
 
 //Search for books
 app.get('/search', renderSearch);
@@ -43,7 +60,7 @@ function Book(info) {
   this.title = info.title;
   this.author = info.authors;
   this.description = info.description ;
-  this.image = info.imageLinks ? info.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
+  this.image_url = info.imageLinks ? info.imageLinks.thumbnail: 'https://i.imgur.com/J5LVHEL.jpg';
   this.isbn = info.industryIdentifiers[0].type.includes('ISBN') ? info.industryIdentifiers[0].identifier : 'No ISBN Available'
 }
 
@@ -67,7 +84,32 @@ function showDetails(request, response) {
   let SQL = 'SELECT * FROM books WHERE id=$1;';
   let values = [request.params.book_id];
   return client.query(SQL, values)
-    .then (result => response.render('pages/books/details', {book: result.rows[0]}))
+    .then((details) => {
+      client.query('SELECT DISTINCT bookshelf FROM books;')
+        .then((bookshelves) => {
+          response.render('pages/books/details', {book: details.rows[0], bookshelves: bookshelves.rows})})
+    })
+    .catch(err => handleError(err, response));
+}
+
+// Edit details of a book in your library from the Details page
+function editDetails(request, response) {
+  let {title, author, image_url, description, isbn, bookshelf} = request.body;
+  let SQL = `UPDATE books SET title=$1, author=$2, image_url=$3, description=$4, isbn=$5, bookshelf=$6 WHERE id=$7;`;
+  let values = [title, author, image_url, description, isbn, bookshelf, request.params.book_id];
+
+  client.query(SQL, values)
+    .then(response.redirect(`/details/${request.params.book_id}`))
+    .catch(err => handleError(err, response));
+}
+
+// Delete the current book from your library
+function deleteBook(request, response) {
+  let SQL = `DELETE FROM books WHERE id=$1;`;
+  let values = [request.params.book_id];
+
+  client.query(SQL, values)
+    .then(response.redirect('/'))
     .catch(err => handleError(err, response));
 }
 
@@ -110,3 +152,4 @@ function addBook(request, response) {
 function handleError(error,response) {
   response.render('pages/error', {error: error});
 }
+

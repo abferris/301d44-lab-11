@@ -1,8 +1,52 @@
+
+ul{
+  width: 100vw;
+
+}
+ li{
+   margin:auto;
+ }
 div{
-  max-width: 600px;
-  width: 40rem;
-  height: auto;
-  margin: 1.8rem auto;
+  width: 80vw;
+  height: 110vw;
+  margin: 1.8rem;
   border: outset white .25rem;
+  margin:auto 10vw 3vw;
+  padding: 5px
+}
+ul{ 
+  width: 80vw;
+}
+.homediv{
+  height:80vw;
+}
+#detaildiv{
+  margin: 1rem auto;
+  width:80vw;
+  height: auto;
+}
+input:invalid {
+  border: 2px solid red;
 }
 
+@media screen and (min-width: 430px) {
+  ul{
+    width: 100vw;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  li div{
+    width: 350px;
+    height: 500px;
+    margin: 10px 0;
+  }
+  
+  .homediv{
+    height: 350px;
+  }
+
+  .homediv img{
+    height: 70%;
+  }
+}
