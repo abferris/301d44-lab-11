@@ -12,7 +12,7 @@
       <ul>
         <% results.forEach(book => { %>
           <li> 
-            <div class='result' data-id="<%= book.id%>">
+            <div class='result homediv' data-id="<%= book.id%>">
               <img src= <%= book.image_url %> />
               <%- include('components/basic', {book: book}); %>
               <a href="/details/<%= book.id%>"> View Details </a>
