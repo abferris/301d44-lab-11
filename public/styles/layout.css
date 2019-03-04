@@ -17,6 +17,16 @@ div{
 ul{ 
   width: 80vw;
 }
+.homediv{
+  height:80vw;
+}
+#detaildiv{
+  margin: 1rem auto;
+  width:80vw;
+  height: auto;
+}
+
+
 @media screen and (min-width: 430px) {
   ul{
     width: 100vw;
@@ -29,15 +39,12 @@ ul{
     height: 500px;
     margin: 10px 0;
   }
-}
-<<<<<<< HEAD
+  
+  .homediv{
+    height: 350px;
+  }
 
-input:invalid {
-  border: 2px solid red;
+  .homediv img{
+    height: 70%;
+  }
 }
-
-input:valid {
-  border: 2px solid black;
-}
-=======
->>>>>>> 612522acb10145cc8fb92efca26936eeaf2642fe

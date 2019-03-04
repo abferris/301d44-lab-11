@@ -7,15 +7,15 @@
   </head>
   <body>
     <main>
-      <h4>Book Details <%- include('../components/nav') %></h4>
-      <div>
+      <h4><%- include('../components/nav') %> Book Details </h4>
+      <div id=detaildiv>
         <button class="hide">Edit Details</button>
-        <form action="<%= `/delete/${book.id}` %>" method="POST">
+        <form action="<%= `/delete/${book.id}` %>" method="POST" id="delete">
           <input type="hidden" name="_method" value="DELETE"></input>
           <button>Delete Book from Library</button>
         </form>
         <img src= <%= book.image_url %> />
-        <div class="toggle">
+        <div class="toggle details">
           <%- include('../components/basic', {book: book});%>
           <p class='description'><%= book.description %></p>
           <p class='isbn'>ISBN: <%=book.isbn%></p>
