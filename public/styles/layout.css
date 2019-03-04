@@ -30,7 +30,6 @@ ul{
     margin: 10px 0;
   }
 }
-<<<<<<< HEAD
 
 input:invalid {
   border: 2px solid red;
@@ -39,5 +38,3 @@ input:invalid {
 input:valid {
   border: 2px solid black;
 }
-=======
->>>>>>> 612522acb10145cc8fb92efca26936eeaf2642fe
