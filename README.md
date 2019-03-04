@@ -127,7 +127,7 @@ Start time: 9:45
 
 Finish time: 10:30
 
-Actual time needed to complete: .75 min
+Actual time needed to complete: .75 hour
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
@@ -135,13 +135,13 @@ Actual time needed to complete: .75 min
 
 ###Feature 1: Saved Books
 
-Estimate of time needed to complete: 1 Hour
+Estimate of time needed to complete: 1 hour
 
 Start time: 12:00
 
 Finish time: 12:30
 
-Actual time needed to complete: .5 min
+Actual time needed to complete: .5 hour
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
@@ -151,11 +151,11 @@ Actual time needed to complete: .5 min
 
 Estimate of time needed to complete: 1 Hour
 
-Start time: 12:00
+Start time: 12:30
 
-Finish time: 12:30
+Finish time: 1:00
 
-Actual time needed to complete: .5 min
+Actual time needed to complete: .5hour
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
@@ -165,9 +165,9 @@ Actual time needed to complete: .5 min
 
 Estimate of time needed to complete: 1 Hour
 
-Start time: 12:00
+Start time: 1:00
 
-Finish time: 12:30
+Finish time: 1:30
 
 Actual time needed to complete: .5 min
 
@@ -179,11 +179,13 @@ Actual time needed to complete: .5 min
 
 Estimate of time needed to complete: 1 Hour
 
-Start time: 12:00
+Sunday March 2nd
 
-Finish time: 12:30
+Start time: 8:00
 
-Actual time needed to complete: .5 min
+Finish time: 9:00
+
+Actual time needed to complete: 1 hour
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
@@ -193,11 +195,43 @@ Actual time needed to complete: .5 min
 
 Estimate of time needed to complete: 1 Hour
 
-Start time: 12:00
+Start time: 9:00
 
-Finish time: 12:30
+Finish time: 9:30
 
-Actual time needed to complete: .5 min
+Actual time needed to complete: .5 hour
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+##Lab 12
+
+
+
+###Feature 1: Update Details
+
+Estimate of time needed to complete: 30 min
+
+Start time: 9:30
+
+Finish time: 10:30
+
+Actual time needed to complete: 10 hour
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+###Feature 2: Remove Books from Saved
+
+Estimate of time needed to complete: 30 min
+
+Start time: 10:30
+
+Finish time: 11:30
+
+Actual time needed to complete: 1 hour
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 --------------------------------------------------------------------------
