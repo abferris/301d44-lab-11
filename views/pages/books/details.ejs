@@ -19,7 +19,7 @@
           <%- include('../components/basic', {book: book});%>
           <p class='description'><%= book.description %></p>
           <p class='isbn'>ISBN: <%=book.isbn%></p>
-          <p class='shelf'><%= book.bookshelf%></p>
+          <p class='shelf'>Bookshelf: <%= book.bookshelf%></p>
         </div>
         <form action="<%= `/edit/${book.id}` %>" method="POST" class="toggle hidden">
           <input type="hidden" name="_method" value="PUT"></input>
